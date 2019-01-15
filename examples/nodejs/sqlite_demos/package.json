@@ -1,0 +1,15 @@
+{
+  "name": "schaubssqlitedemojunk",
+  "version": "0.0.1",
+  "description": "For the eager students",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dr. Schaub",
+  "license": "ISC",
+  "dependencies": {
+    "sqlite3": "^3.1.8"
+  }
+}

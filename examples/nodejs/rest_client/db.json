@@ -1,0 +1,32 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode",
+      "message": "Hello, friends!"
+    },
+    {
+      "id": 2,
+      "title": "Greetings",
+      "author": "martin",
+      "message": "Hello from Jupiter"
+    },
+    {
+      "id": 4,
+      "title": "Blah",
+      "author": "ellen",
+      "message": "I want to go back to sleep."
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
