@@ -1,0 +1,20 @@
+<h1>Registration</h1>
+
+<form method="post" action="/confirm">
+    <input type="hidden" name="username" value="{{username}}">
+    <input type="hidden" name="password" value="{{password}}">
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td>{{username}}</td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>{{password}}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Confirm"></td>
+        </tr>
+    </table>
+</form>

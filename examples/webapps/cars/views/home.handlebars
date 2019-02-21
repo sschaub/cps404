@@ -1,0 +1,16 @@
+<h1>Pick your favorite.</h1>
+
+Everything works guaranteed.
+
+<ul>
+{{#each inventory}}
+<li>{{make}} {{model}} <a href='/delete/{{id}}'>(delete)</a></li>
+{{/each}}
+</ul>
+
+<form method="get" action="/add">
+Make: <input type="text" name="make" value=""><br>
+Model: <input type="text" name="model" value=""><br>
+<input type="submit" value="Add">
+
+</form>

@@ -1,0 +1,37 @@
+<h1>Registration</h1>
+
+<form method="post" action="/register">
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" name="username" value="{{username}}"></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password" value=""></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+                <select name="gender">
+                    <option value="-1">--- pick only one ---</option>
+                    <option value="1">Male</option>
+                    <option value="0">Female</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Confirm Password:</td>
+            <td><input type="password" name="confirmpassword" value=""></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Continue"></td>
+        </tr>
+    </table>
+    <ul>
+    {{#each errmsg}}
+    <li>{{this.msg}}</li>
+    {{/each}}
+    </ul>
+</form>

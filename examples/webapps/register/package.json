@@ -1,0 +1,16 @@
+{
+  "name": "express-handlebars-basic-example",
+  "version": "0.0.0",
+  "description": "",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "license": "BSD",
+  "dependencies": {
+    "express": "^4.7.x",
+    "body-parser": "1.16.x", 
+    "express-handlebars": "*"
+  }
+}

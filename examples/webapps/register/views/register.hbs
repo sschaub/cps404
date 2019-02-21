@@ -1,0 +1,33 @@
+<h1>Registration</h1>
+
+<form method="post" action="/register">
+    <table>
+        <tr>
+            <td>Username:</td>
+            <td><input type="text" name="username" value="{{username}}"></td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password" value=""></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+                <select name="gender">
+                    <option>--- pick only one ---</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Confirm Password:</td>
+            <td><input type="password" name="confirmpassword" value=""></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Continue"></td>
+        </tr>
+    </table>
+    <p>{{errmsg}}</p>
+</form>
