@@ -1,11 +1,13 @@
+
+
 let express = require("express");
 
 let mysql = require("mysql");
 let pool = mysql.createPool({    
     "host": "localhost",
-    "user": "username",
-    "password": "secret",
-    "database": "dbname",
+    "user": "root",
+    "password": "passw0rd",
+    "database": "simpledb",
     "connectionLimit": 10
 });
 
@@ -14,7 +16,11 @@ let app = express();
 
 app.get('/hello', function (req, res) {
     pool.getConnection(function(err, connection) {
-        connection.query("SELECT * FROM Person", function (err, results) {
+        if (err) {
+            res.send("Problem: " + err);
+            return;
+        }
+        connection.query("SELECT * FROM Student", function (err, results) {
             res.send(results);
             connection.release();  // release connection
         });
