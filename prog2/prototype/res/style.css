@@ -1,0 +1,37 @@
+p {
+	FONT-SIZE: 9pt; COLOR: #333333; FONT-FAMILY: Verdana, Arial, Helvetica
+}
+td {
+	FONT-SIZE: 9pt; COLOR: #333333; FONT-FAMILY: Verdana, Arial, Helvetica; border-color: blue;
+	BORDER-RIGHT: 1px; BORDER-TOP: 1px; BORDER-LEFT: 1px; BORDER-BOTTOM: 1px; background-repeat: no-repeat; 
+}
+A:link {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #660000; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A:visited {
+	FONT-WEIGHT: bold; COLOR: #660000; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #333333; TEXT-DECORATION: none
+}
+A:active {
+	COLOR: #333333; TEXT-DECORATION: none
+}
+a.smallLink {
+	FONT-SIZE: 7pt; COLOR: #000066; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+a.smallLink:hover {
+	FONT-SIZE: 7pt; COLOR: #003399; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+a.larger {
+	FONT-SIZE: 12pt; COLOR: #000066; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+a.larger:hover {
+	FONT-SIZE: 12pt; COLOR: #003399; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+a.main {
+	FONT-SIZE: 10pt; font-weight: normal; COLOR: #000066; FONT-FAMILY: Arial, Helvetica, sans-serif; TEXT-DECORATION: none; 
+}
+a.blogname {
+	color: #000066; font-family: Veranda, Arial, Helvetica; font-size: 9pt; font-weight: bold;
+}

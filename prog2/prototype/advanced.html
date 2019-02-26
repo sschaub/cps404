@@ -1,0 +1,71 @@
+<HTML>
+  <HEAD>
+    <title>Backwater Creek Community Library - Simple Search</title>
+    <LINK href="res/styles.css" type="text/css" rel="stylesheet">
+
+  </HEAD>
+  <body link="#660000">
+<!-- begin header -->
+  <table width="100%" border="0">
+    <tr>
+      <td bgColor="#333333" colSpan="2">
+        <font face="arial, helvetica" color="#ffffff">Backwater Creek Community</font>
+      </td>
+    </tr>
+
+    <tr>
+      <td vAlign="top">&nbsp;<a href="search.html">Search</a> | <a href="mobile_search.html">Mobile</a> | <a href="login.html">Login</a></td>
+      <td align="right">
+        <IMG alt="Backwater Creek Community" src="res/logo.jpg">
+      </td>
+    </tr>
+  </table>
+<!-- end header -->
+    <form method="post" action="advanced.html" >
+
+            <table cellSpacing="5" cellPadding="5" align="left" border="1">
+              <tr>
+                <td vAlign="top" align="right" width="150">Title:</td>
+                <td><textarea name="txtTitle" ></textarea>&nbsp;</td>
+              </tr>
+              <tr>
+                <td vAlign="top" align="right">Call Number:</td>
+
+                <td><input name="txtCallNo" type="text"/></td>
+              </tr>
+              <tr>
+                <td vAlign="top" align="right">Author:</td>
+                <td><input name="txtAuthor" type="text" /></td>
+              </tr>
+              <tr>
+                <td vAlign="top" align="right">Publication Info:</td>
+
+                <td><input name="txtPubInfo" type="text"  /></td>
+              </tr>
+              <tr>
+                <td vAlign="top" align="right">Description:</td>
+                <td><input name="txtDescription" type="text" /></td>
+              </tr>
+              <tr>
+                <td align="right" valign="top">Series:</td>
+
+                <td><input name="txtSeries" type="text"  /></td>
+              </tr>
+              <tr>
+                <td align="right" valign="top">Additional Author:</td>
+                <td><input name="txtAddAuthor" type="text"  /></td>
+              </tr>
+              <tr>
+                <td align="right" valign="top">
+
+                </td>
+                <td>
+                  <input type="submit" name="btnSearch" value="Search"  />
+
+                </td>
+              </tr>
+            </table>
+          
+    </form>
+  </body>
+</HTML>
