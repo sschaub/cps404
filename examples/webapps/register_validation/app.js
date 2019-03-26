@@ -47,8 +47,17 @@ app.post('/register', function (req, res) {
             //res.send('There have been validation errors: ' + util.inspect(result.array()), 400);
             return;
         }
-        res.render('confirm', { username: username, password: password });
 
+        // DO THIS?
+        //res.render('confirm', { username: username, password: password });
+
+        // or this?
+        res.redirect('/confirm?username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password));
+        // or ...?
+
+        req.session.username = username;
+        req.session.password = password;
+        res.redirect('/confirm')
     });
 });
 

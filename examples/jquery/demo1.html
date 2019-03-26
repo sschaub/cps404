@@ -1,0 +1,32 @@
+<html>
+<head>
+   <script src="jquery-1.7.2.js"></script>
+   <script>
+    $( function() {
+        $('#mebutton').click(function() {
+            //$('#hereiam')[0].innerHTML = 'I was a little paragraph.'
+            $('#hereiam').html('I was a little paragraph.')
+          
+            var str = $('.imadiv').html()
+            
+            $('.imadiv').fadeOut()
+            //$('#div2').show()
+            $('.imadiv').css('color', 'red')
+        })
+    }
+    )
+   </script>
+</head>
+<body>
+
+<p id="hereiam">I am a little paragraph.</p>
+
+<input type="button" id="mebutton" value="Click me!">
+
+<div class="imadiv">Div 1</div>
+<div id='div2' class="imadiv">Div 2</div>
+<div class="imadiv">Div 3</div>
+
+
+</body>
+</html>

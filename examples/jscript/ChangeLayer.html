@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<TITLE></TITLE>
+<SCRIPT ID=clientEventHandlersJS LANGUAGE=javascript>
+<!--
+
+function btnUpdate_onclick() {
+  var data = document.frmInfo.taStuff.value;
+  if (document.layers) {
+    document.layers.layer1.document.writeln(data);
+    document.layers.layer1.document.close();
+  } else {
+    document.all.layer1.innerHTML = data;
+  }
+}
+
+//-->
+</SCRIPT>
+</HEAD>
+<BODY>
+
+<FORM action=""  method=post name=frmInfo>
+
+Enter text to update:<BR>
+<DIV ID="layer1" STYLE="POSITION:relative; TOP:30px; LEFT:475px; BACKGROUND-COLOR:#CCCCFF; BORDER-WIDTH:4px; BORDER-COLOR:gray; width:200px; padding:10px; border-style:none">
+Here is some info.
+</DIV>
+<TEXTAREA name=taStuff cols=50 rows=20></TEXTAREA>
+<BR>
+<INPUT name=btnUpdate type=button value=Update LANGUAGE=javascript onclick="return btnUpdate_onclick()">
+<P>Enter code to execute: <INPUT name=txtJSCode>
+<INPUT  name=btnExec type=button value=Exec  onClick="eval(document.frmInfo.txtJSCode.value);">
+</P></FORM>
+
+</BODY>
+</HTML>

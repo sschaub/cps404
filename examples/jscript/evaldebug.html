@@ -1,0 +1,22 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+<TITLE></TITLE>
+<script>
+var lblResult;
+
+</script>
+</HEAD>
+<BODY onload="lblResult = document.getElementById('lblResult');">
+<FORM action=""  method=post name=frmInfo>
+<P>Name: <INPUT name=txtName></P>
+<P>Age: <INPUT name=txtAge></P>
+<P>&nbsp;</P>
+<P><INPUT id="txtJSCode" name="txtJSCode" size=80 value="document.forms[0].txtName.value" >
+<INPUT  name="btnExec" type="button" value="Execute" onClick="lblResult.innerHTML = eval(document.frmInfo.txtJSCode.value);">
+</P></FORM>
+
+<P id="lblResult"></P>
+
+</BODY>
+</HTML>

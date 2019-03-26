@@ -1,0 +1,140 @@
+<HTML>
+
+
+
+<HEAD>
+
+<TITLE>OpenFrame Info</TITLE>
+
+
+<SCRIPT>
+
+function showLayer(layer) {
+
+  //alert("Show " + layer);
+
+  document.getElementById(layer).style.visibility = "visible";
+
+}
+
+
+
+function hideLayer(layer) {
+
+  //alert("hidden " + layer);
+
+  document.getElementById(layer).style.visibility = "hidden";
+
+}
+
+
+
+</SCRIPT>
+
+
+</HEAD>
+
+
+
+
+
+<BODY BGCOLOR=white>
+
+
+
+<H2>HOW Database Access</H2>
+
+
+
+<DIV>
+
+
+
+<DIV ID=layer1 STYLE="POSITION:absolute; TOP:20px; LEFT:425px; BACKGROUND-COLOR:#CCCCFF; BORDER-WIDTH:4px; BORDER-COLOR:gray; width:200px; padding:10px; border-style:none; visibility:hidden" >
+
+<P>When an application is started, the Application Manager creates, in the Presentation tier, an instance of the UI Link for each DataWindow in the application.
+
+</P>
+
+</DIV>
+
+
+
+<DIV ID=layer2 STYLE="POSITION:absolute; TOP:20px; LEFT:425px; BACKGROUND-COLOR:#CCCCFF; BORDER-WIDTH:4px; BORDER-COLOR:gray; width:200px; padding:10px; border-style:none; visibility:hidden">
+
+The first window (w_window) is instantiated.
+
+</DIV>
+
+
+
+<DIV ID=layer3 STYLE="POSITION:absolute; TOP:20px; LEFT:425px; BACKGROUND-COLOR:#CCCCFF; BORDER-WIDTH:4px; BORDER-COLOR:gray; width:200px; padding:10px; border-style:none; visibility:hidden">
+
+The window is populated with its controls (u_dw), each of which has an associated DataWindow object (i.e.,
+
+     query; d_). 
+
+</DIV>
+
+
+
+<DIV ID=layer4 STYLE="POSITION:absolute; TOP:20px; LEFT:425px; BACKGROUND-COLOR:#CCCCFF; BORDER-WIDTH:4px; BORDER-COLOR:gray; width:200px; padding:10px; border-style:none; visibility:hidden">
+
+The control then passes a query pointer to the UI Link.
+
+</DIV>
+
+
+
+<DIV ID=layer5 STYLE="POSITION:absolute; TOP:190px; LEFT:425px; BACKGROUND-COLOR:#CCCCFF; BORDER-WIDTH:4px; BORDER-COLOR:gray; width:200px; padding:10px; border-style:none; visibility:hidden">
+
+The UI Link instantiates the Business Collection Manager in the Business tier and passes it the pointer.
+
+</DIV>
+
+
+
+<DIV ID=layer6 STYLE="POSITION:absolute; TOP:340px; LEFT:425px; BACKGROUND-COLOR:#CCCCFF; BORDER-WIDTH:4px; BORDER-COLOR:gray; width:200px; padding:10px; border-style:none; visibility:hidden">
+
+The Business Collection Manager then instantiates a Datalink object, which contains both the query and the
+
+appropriate data access information. 
+
+</DIV>
+
+
+
+<DIV ID=layer7 STYLE="POSITION:absolute; TOP:340px; LEFT:425px; BACKGROUND-COLOR:#CCCCFF; BORDER-WIDTH:4px; BORDER-COLOR:gray; width:200px; padding:10px; border-style:none; visibility:hidden">
+
+The Datalink then handles all communications with the database to retrieve the result set of data. 
+
+</DIV>
+
+
+
+
+
+<IMG SRC="ofr1.gif" USEMAP="#ofr1" BORDER=None>
+
+<MAP NAME="ofr1">
+
+  <AREA SHAPE=CIRCLE COORDS="122,140,20" HREF="#" onMouseOver="showLayer('layer1');" onMouseOut="hideLayer('layer1');">
+  <AREA SHAPE=CIRCLE COORDS="122,22,20" HREF="#" onMouseOver="showLayer('layer2');" onMouseOut="hideLayer('layer2');">
+  <AREA SHAPE=CIRCLE COORDS="160,59,20" HREF="#" onMouseOver="showLayer('layer3');" onMouseOut="hideLayer('layer3');">
+  <AREA SHAPE=CIRCLE COORDS="221,117,20" HREF="#" onMouseOver="showLayer('layer4');" onMouseOut="hideLayer('layer4');">
+  <AREA SHAPE=CIRCLE COORDS="194,247,20" HREF="#" onMouseOver="showLayer('layer5');" onMouseOut="hideLayer('layer5');">
+  <AREA SHAPE=CIRCLE COORDS="195,370,20" HREF="#" onMouseOver="showLayer('layer6');" onMouseOut="hideLayer('layer6');">
+  <AREA SHAPE=CIRCLE COORDS="197,404,20" HREF="#" onMouseOver="showLayer('layer7');" onMouseOut="hideLayer ('layer7');">
+
+</MAP>
+
+
+
+</DIV>
+
+
+
+</BODY>
+
+
+</HTML>

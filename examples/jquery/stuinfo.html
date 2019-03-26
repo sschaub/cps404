@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://code.jquery.com/jquery-3.2.1.js">
+
+  </script>
+  <title>
+    Student Information Form
+  </title>
+  <script language="JavaScript" type="text/javascript">
+    $(function () {
+      $('form').on('submit', doSubmit );
+    });
+
+    function doSubmit() {
+      if ($('#fn').val() == "") {
+        alert("Please enter first name.");
+        $('#fn').focus()
+        return false;
+      }
+
+      if ($('#ln').val() == "") {
+        alert("Please enter last name.");
+        $('#ln').focus()
+        return false;
+      }
+
+      var cls = $("input[name='CLS']:checked").val();
+      
+      if (!cls) {
+        alert("Please select a classification before submitting the form.");
+        return false;
+      }
+
+      var genderVal = $('#gender').val();
+      if (genderVal == "") {
+        alert("Please select a gender before submitting the form.");
+        return false;
+
+      }
+
+      alert("User selected Gender: " + genderVal)
+
+      return true;
+    }
+    function lookupAdvisor() {
+      window.open("advisors.html", "", "height=300,width=200,toolbar=no,menubar=no");
+
+    }
+  </script>
+</head>
+
+<body link="#0000ff" vlink="#800080">
+  <h1 align="center">
+    CpS 110 Student Information
+  </h1>
+  <form name="stuinfo" action="thanks.html" method="get">
+    <p>
+      Please fill in the following information. To fill in a blank, first click on it or "tab" to it. If you don't have all the
+      information now, fill in what you can and then let us know the other things later. If you object to completing any
+      of the optional information, you may leave it blank.
+    </p>
+    <p>
+      When you are finished filling out the form, click on the "submit form" button at the bottom of this page.
+    </p>
+    <hr size="8">
+    <h2>
+      Required Information:
+    </h2>
+    <table style="margin-left: 50px" cellspacing="0" border="1" cellpadding="7" width="637">
+      <tr>
+        <td width="29%" valign="top">
+          <p>
+            <b>Name:</b>
+          </p>
+        </td>
+        <td width="71%" valign="top">
+          <p>
+            First: <input type="text" maxlength="30" name="FN" id="fn"> &nbsp;&nbsp;&nbsp; 
+            Last: <input type="text" maxlength="30" name="LN" id="ln">
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td width="29%" valign="top">
+          <b>PO Box Number:</b>
+        </td>
+        <td width="71%" valign="top">
+          <input type="text" maxlength="5" name="POB" id="pob">
+        </td>
+      </tr>
+      <tr>
+        <td width="29%" valign="top">
+          <b>Phone Number:</b>
+        </td>
+        <td width="71%" valign="top">
+          <input type="text" maxlength="30" name="PHN" id="phn">
+        </td>
+      </tr>
+      <tr>
+        <td vAlign="top" width="29%"><b>Advisor:</b></td>
+        <td vAlign="top" width="71%"><input name="ADVISOR"><input type="button" value="..." onclick="lookupAdvisor();"></td>
+      </tr>
+
+      <tr>
+        <td width="29%" valign="top">
+          <p>
+            <b>Classification:</b>
+          </p>
+        </td>
+        <td width="71%" valign="top">
+          <input type="radio" name="CLS" value="31"> Freshman
+          <input type="radio" name="CLS" value="32"> Sophomore
+          <input type="radio" name="CLS" value="33"> Junior
+          <input type="radio" name="CLS" value="34"> Senior
+          <input type="radio" name="CLS" value="0"> Other
+        </td>
+      </tr>
+      <tr>
+        <td width="29%" valign="top">
+          <p>
+            <b>Gender:</b>
+          </p>
+        </td>
+        <td width="71%" valign="top">
+          <select name="GENDER" id="gender">
+                <option value="">?
+                <option value="M">Male
+                <option value="F">Female
+            </select>
+        </td>
+      </tr>
+    </table>
+
+    <hr size="4">
+
+    <p align="center">
+      <input type="reset" value="Clear all entries and start over">
+    </p>
+    <p align="center">
+      <input type="submit" value="Submit Form">
+    </p>
+  </form>
+</body>
+
+</html>

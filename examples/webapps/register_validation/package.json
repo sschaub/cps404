@@ -10,7 +10,7 @@
   "license": "BSD",
   "dependencies": {
     "express": "^4.7.x",
-    "body-parser": "1.16.x", 
+    "body-parser": "1.16.x",
     "express-handlebars": "*",
     "express-validator": "*"
   }

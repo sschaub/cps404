@@ -10,12 +10,13 @@ sqlitedb.all("select * from users", function(err, rows) {
     }
 
     rows.forEach(function(row) {
-        console.log(row);
+        console.log('Got row:', row, row.username);
     });
     
 });
 
-sqlitedb.run("insert into users(username, password) values(?, ?)", "George", "guessme", function(err, result) {
+let uname = "Suzie", pwd = "guessme";
+sqlitedb.run("insert into users(username, password) values(?,?)", uname, pwd, function(err, result) {
     if (err) {
         console.log(err);
         return;

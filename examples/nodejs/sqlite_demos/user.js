@@ -20,10 +20,12 @@ User.prototype.save = function (callback) {
 
     } else {
         // update existing record
-        this.db.run('update users set username = ?, password = ? where id = ?', 
-            this.username, this.password, self.id, 
+        self.db.run('update users set username = ?, password = ? where id = ?', 
+            self.username, self.password, self.id, 
             function (err, result) {
                 if (err) return callback(err);
+                if (this.changes != 1)
+                  callback(new Error('No such user'));
                 callback(null, result); 
             });
     }
@@ -33,13 +35,14 @@ User.findByUsername = function (username, callback) {
     User.db.get('select * from users where username = ?', username, function(err, data) {
         if (err) return callback(err);
         if (data) {
-            console.log("Got: ", data);
+            // console.log("Got: ", data);
             callback(null, new User(data.username, data.password, data.id));
         } else {
             callback(null, null);
         }
     });
 }
+
 
 module.exports = function(db) {
     User.db = User.prototype.db = db; // expose db to User class and instances
