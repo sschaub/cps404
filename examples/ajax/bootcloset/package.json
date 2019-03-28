@@ -1,0 +1,14 @@
+{
+  "name": "bootcloset",
+  "version": "0.0.0",
+  "description": "",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "license": "BSD",
+  "dependencies": {
+    "express": "^4.7.x"
+  }
+}

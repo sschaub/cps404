@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to The Boot Closet&trade;</title>
+    <link rel="stylesheet" type="text/css" href="boot.closet.css">
+    <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        $('#styleDropdown')
+          .change(function(){
+            var styleValue = $(this).val();
+            $.get(
+              '/details',
+              { style: styleValue },
+              function(data) {
+                if (!data.sku) return;
+
+                $('#itemName').text(data.name);
+                $('#itemSku').text(data.sku);
+                $('#itemColors').html(data.colors);
+                $('#itemPrice').text(data.price);
+                $('#itemFeatures').html(data.features);
+                var imgUrl = "photos/" + data.sku + ".png";
+                $('#itemPhoto').attr('src', imgUrl);
+              }
+            );
+          })
+          .change();
+      });
+    </script>
+  </head>
+
+  <body id="bootCloset1">
+    <img id="banner" src="boot.closet.branding.png"/>
+    <form action="" id="orderForm">
+      <div id="detailFormContainer">
+        <h1>Choose your boots</h1>
+        <div>
+          <label>Please choose a style:</label><br/>
+          <select id="styleDropdown">
+            <option value="">Please choose a boot style</option>
+            <option value="7177382">Caterpillar Tradesman Work Boot</option>
+            <option value="7141832">Chippewa 17" Engineer Boot</option>
+          </select>
+        </div>
+        <div id="detailsDisplay">
+          <div>
+            <label>Item name:</label> <span id="itemName"></span>
+          </div>
+          <div>
+            <label>SKU:</label> <span id="itemSku"></span>
+          </div>
+          <div>
+            <label>Colors:</label> <span id="itemColors"></span>
+          </div>
+          <div>
+            <label>Today's price:</label> <span id="itemPrice"></span>
+          </div>
+          <div>
+            <label>Features:</label> <span id="itemFeatures"></span>
+          </div>
+          <div align="center">
+            <img id="itemPhoto" src="" />
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
