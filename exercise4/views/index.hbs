@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Todo List | Express.js Todo App</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header"><a href="/" class="navbar-brand">Express.js Todo App</a></div>
+            </div>
+        </div>
+        {{#if errmsg}}
+        <div class="alert alert-warning">{{{errmsg}}}</div>
+        {{/if}}
+       
+        <h1>Login, Please</h1>
+        <form action="/login" method="post">
+            Username: <input type="text" name="username" value={{username}}> 
+            Password: <input type="password" name="pass"> 
+            <input type="submit" value="Login">
+            <input type="hidden" name="_csrf" value="{{csrf}}">
+        </form>
+
+    </div>
+</body>
+
+</html>

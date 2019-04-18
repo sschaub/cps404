@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Todo List | Express.js Todo App</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header"><a href="/" class="navbar-brand">Express.js Todo App</a></div>
+            </div>
+        </div>
+        {{#if errmsg}}
+        <div class="alert alert-warning">{{{errmsg}}}</div>
+        {{/if}}
+        User: {{user}} (<a href="/logout">logout</a>)
+
+        <h1>Todo List</h1>
+        <div class="list">
+            <div class="item add-task">
+                <form action="/tasks" method="post"><input type="hidden" value="{{csrf}}" name="_csrf">
+                    <div class="name"><input type="text" name="name" placeholder="Add a new task"></div>
+                    <div class="delete"><input type="submit" value="add" class="btn btn-primary btn-sm"></div>
+                </form>
+            </div>
+            {{#each incompleteTasks}}
+            <div class="item">
+                <div class="action">
+                    <form action="/tasks/{{id}}" method="post"><input type="hidden" value="true" name="completed">
+                        <input
+                            type="hidden" value="{{../csrf}}" name="_csrf">
+                        <input type="submit" value="done" class="btn btn-success btn-xs task-done"></form>
+                </div>
+                <div class="name"><span class="name">{{task_desc}}</span></div>
+                <div class="delete"><a href="/tasks/delete?id={{id}}" class="btn btn-danger btn-xs task-delete">delete</a></div>
+            </div>
+            {{/each}}
+
+            <h2>Completed</h2>
+            {{#each completeTasks}}
+            <div class="item">
+                <div class="name"><span class="name">{{task_desc}}</span></div>
+            </div>
+            {{/each}}
+
+        </div>
+
+    </div>
+</body>
+
+</html>
