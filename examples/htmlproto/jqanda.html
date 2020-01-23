@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title></title>
+    <meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+    <meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+    <script>
+		function confirmOverridePending(judge) {
+			return window.confirm(judge + ' is answering this question. Are you sure you want to override?');
+		}
+		function confirmEditAnswer() {
+			return window.confirm('This question has already been answered. Are you sure you want to edit the reply?');
+		}		
+    </script>
+  </head>
+  <body>
+    <table width="100%">
+      <tr>
+        <td valign="top"><h2>2004 BJU Computer Science Contest</h2>
+          <P>Judge: Thomas
+          </P>
+        </td>
+        <td align="right" valign="top"><img src="q.gif" height="100"></td>
+      </tr>
+    </table>
+    <table width="100%">
+      <tr bgcolor="silver">
+        <td width="33%"><a href="jmain.html">Submissions</a> | <a href="jqanda.html">Messages</a> 
+        </td>
+        <td width="33%" align="center"><a href="jqanda.html">2 Messages Waiting</a></td>
+          <td align="right"><a href="jreports.html">Reports</a> | <a href="jadmin.html">Administration</a> | <a href="login.html">Logout</a></td>        </tr>
+      </tr>
+      <tr bgcolor="silver">
+        <td colspan=3 align=center><a href="jqanda.html">View Questions</a> | <a href="jsendmsg.html">Send Message</a>
+        </td>
+      </tr>
+    </table>
+    <form action="jeditreply.html" ID="Form2">
+      <br>
+      Current View: <input type="radio"> Pending&nbsp;Questions <input type="radio" checked>
+      All&nbsp;Questions <INPUT id="Radio1" type="radio"> Messages Sent
+      <table BORDER="0" COLS="6" WIDTH="100%" ID="Table1">
+        <TR>
+          <TD ALIGN="center" BGCOLOR="#3366ff"><FONT COLOR="#ffffff"><B>Problem</B></FONT></TD>
+          <TD ALIGN="center" BGCOLOR="#3366ff"><FONT COLOR="#ffffff"><B>User</B></FONT></TD>
+          <TD ALIGN="center" BGCOLOR="#3366ff"><FONT COLOR="#ffffff"><B>Time</B></FONT></TD>
+          <TD ALIGN="center" BGCOLOR="#3366ff"><FONT COLOR="#ffffff"><B>Status</B></FONT></TD>
+          <TD ALIGN="center" BGCOLOR="#3366ff"><FONT COLOR="#ffffff"><B>Judge</B></FONT></TD>
+          <TD></TD>
+        <TR>
+          <TD ALIGN="center" BGCOLOR="#00ccc0">1</TD>
+          <TD ALIGN="center" BGCOLOR="#00ccc0">c21</TD>
+          <TD ALIGN="center" BGCOLOR="#00ccc0">08:53</TD>
+          <TD ALIGN="center" BGCOLOR="#00ccc0">Pending</TD>
+          <TD ALIGN="center" BGCOLOR="#00ccc0">Suter</TD>
+          <TD><INPUT type="submit" value="Reply" ID="Submit1" NAME="Submit1" onclick="return confirmOverridePending('suter');"></TD>
+        <tr>
+          <td><P align="right"><b>Q:</b></P></td>
+          <td colspan="4">How much input data are you going to give us?</td>
+        </tr>
+        <TR>
+          <TD ALIGN="center" BGCOLOR="#00ccc0">General</TD>
+          <TD ALIGN="center" BGCOLOR="#00ccc0">c32</TD>
+          <TD ALIGN="center" BGCOLOR="#00ccc0">08:55</TD>
+          <TD ALIGN="center" BGCOLOR="#00ccc0">Submitted</TD>
+          <TD ALIGN="center" BGCOLOR="#00ccc0"></TD>
+          <TD><INPUT type="submit" value="Reply" ID="Submit2" NAME="Submit2"></TD>
+        <tr>
+          <td style="HEIGHT: 23px"><P align="right"><b>Q:</b></P></td>
+          <td colspan="4" style="HEIGHT: 23px">
+            Can we leave when we finish?</td>
+        </tr>
+        <TR>
+          <TD ALIGN="center" BGCOLOR="#00ccc0">3</TD>
+          <TD ALIGN="center" BGCOLOR="#00ccc0">c29</TD>
+          <TD ALIGN="center" BGCOLOR="#00ccc0">08:57</TD>
+          <TD ALIGN="center" BGCOLOR="#00ccc0">Replied</TD>
+          <TD ALIGN="center" BGCOLOR="#00ccc0">Thomas</TD>
+          <TD><INPUT type="submit" value="Edit" ID="Submit3" NAME="Submit2" onclick="return confirmEditAnswer();"></TD>
+        <tr>
+          <td>
+            <P align="right"><b>Q:</b></P>
+          </td>
+          <td colspan="4">Is there a newline at the end of the input file?</td>
+        </tr>
+        <tr>
+          <td>
+            <P align="right"><b>A:</b></P>
+          </td>
+          <td colspan="4">
+            Yes.</td>
+        </tr>
+      </table>
+      <br>
+    </form>
+    <table width="100%" bgcolor="silver">
+      <tr>
+				<td width="50%"><a href="?">Refresh</a></td>
+        <td align="right"><EM>Last updated 2/25/04 12:45 p.m.</EM></td>
+      </tr>
+    </table>
+  </body>
+</html>

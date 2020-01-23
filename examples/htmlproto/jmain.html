@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+	<head>
+		<title></title>
+		<meta name="GENERATOR" content="Microsoft Visual Studio .NET 7.1">
+		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
+		<script>
+		function confirmOverridePending(judge) {
+			return window.confirm(judge + ' is judging this entry. Are you sure you want to override?');
+		}
+		function confirmOverrideJudged() {
+			return window.confirm('This entry has already been judged. Are you sure you want to override?');
+		}		
+		</script>
+	</head>
+	<body>
+		<form action="jgradeframe.html">
+			<table width="100%">
+				<tr>
+					<td valign="top"><h2>2004 BJU Computer Science Contest</h2>
+						<P>Judge: Thomas
+						</P>
+					</td>
+					<td align="right" valign="top"><img src="q.gif" height="100"></td>
+				</tr>
+			</table>
+			<table width="100%">
+				<tr bgcolor="Silver">
+        <td width="33%"><a href="jmain.html">Submissions</a> | <a href="jqanda.html">Messages</a> 
+					<td width="33%" align="center"><a href="jqanda.html">1 Message Waiting</a></td>
+          <td align="right"><a href="jreports.html">Reports</a> | <a href="jadmin.html">Administration</a> | <a href="login.html">Logout</a></td>        </tr>
+				</tr>
+			</table>
+			<br />
+			Current View: <input type="radio" > Pending Submissions  <input type="radio" checked=true> All Submissions
+			<table BORDER="1" COLS="6" WIDTH="100%" ID="Table1">
+				<TR>
+					<TD ALIGN="CENTER" BGCOLOR="#3366FF"><FONT COLOR="#FFFFFF"><B>Problem</B></TD>
+					<TD ALIGN="CENTER" BGCOLOR="#3366FF"><FONT COLOR="#FFFFFF"><B>Platform</B></TD>
+					<TD ALIGN="CENTER" BGCOLOR="#3366FF"><FONT COLOR="#FFFFFF"><B>UserID</B></TD>
+					<TD ALIGN="CENTER" BGCOLOR="#3366FF"><FONT COLOR="#FFFFFF"><B>SubmitTime</B></TD>
+					<TD ALIGN="CENTER" BGCOLOR="#3366FF"><FONT COLOR="#FFFFFF"><B>Status</B></TD>
+					<TD ALIGN="CENTER" BGCOLOR="#3366FF"><FONT COLOR="#FFFFFF"><B>Judge</B></TD>
+					<TD>
+				</TR>
+				<TR>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">1</TD>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">Windows</TD>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">c21</TD>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">08:53</TD>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">Pending</TD>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">Suter</TD>
+					<TD><INPUT type="submit" value="Judge" ID="Submit1" NAME="Submit1" onclick="return confirmOverridePending('suter');">
+				</TR>
+				<TR>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">1</TD>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">Linux</TD>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">c32</TD>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">08:53</TD>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">Submitted</TD>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0"></TD>
+					<TD><INPUT type="submit" value="Judge" ID="Submit2" NAME="Submit2">
+				</TR>
+				<TR>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">1</TD>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">Windows</TD>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">c29</TD>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">08:54</TD>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">Runtime Error</TD>
+					<TD ALIGN="CENTER" BGCOLOR="#00CCC0">dwooster</TD>
+					<TD><INPUT type="submit" value="Rejudge" ID="Submit3" NAME="Submit2" onclick="return confirmOverrideJudged();">
+			</table>
+			<br>
+			<table width="100%" bgcolor="Silver">
+				<tr>
+					<td width="50%"><a href="?">Refresh</a></td>
+					<td align="right"><EM>Last updated 2/25/04 12:45 p.m.</EM></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
