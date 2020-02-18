@@ -4,26 +4,31 @@ let mysql = require("mysql");
 
 let dbhost = process.env['DBHOST'] || 'localhost';
 
-let connection = mysql.createConnection({
+function getConnection() {
+    return mysql.createConnection({
     "host": dbhost,
     "port": 3306,
     "user": "mysql",
     "password": "mysql",
     "database": "mydb"
-});
-
-connection.connect(function (err) {
-    if (err) {
-        throw err;  // terminate application
-    }
-});
+    });
+}
 
 let app = express();
 
 app.get('/hello', function (req, res) {
-    connection.query("SELECT * FROM Person", function (err, results) {
-        res.send(results);
-    })
+    let connection = getConnection();
+    connection.connect(function (err) {
+        if (err) {
+            console.log("Problem connecting to database", err);
+            res.send("Unable to connect to database! " + err);
+            return;
+        }
+        connection.query("SELECT * FROM Person", function (err, results) {
+            res.send(results);
+            connection.destroy();
+        });
+    });    
 });
 
 let port = process.env['PORT'] || 8888;
