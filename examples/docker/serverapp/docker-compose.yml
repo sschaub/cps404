@@ -1,0 +1,11 @@
+version: "2"
+services:
+  node:
+    image: "node:8"
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - 80:8888    # External port : container port
+    command: "node webserver.js"
+

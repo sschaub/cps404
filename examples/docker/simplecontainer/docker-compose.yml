@@ -1,0 +1,5 @@
+version: "2"
+services:
+  my_node_container:
+    image: "node:9"
+    command: "node -e 'console.log(process.env)'"

@@ -1,6 +1,2 @@
-hello
-mary
-there
-is
-some
-data
+[{"incident_number":"20-0191366","division":"Southeast","nature_of_call":"40/01 - Other","priority":"2","date_time":"2020-01-30T09:26:00.000","unit_number":"D355","block":"1200","location":"N Masters Dr","beat":"334","reporting_area":"2206","status":"At Scene"}
+,{"incident_number":"20-0191366","division":"Southeast","nature_of_call":"40/01 - Other","priority":"2","date_time":"2020-01-30T09:26:00.000","unit_number":"D317","block":"1200","location":"N Masters Dr","beat":"334","reporting_area":"2206","status":"At Scene"}]
