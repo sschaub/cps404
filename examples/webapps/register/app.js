@@ -42,15 +42,28 @@ app.post('/register', function (req, res) {
         errMsg = "Passwords don't match.";
     }
 
-    if (gender != 'Male' && gender != 'Female')
+    if (gender != 'M' && gender != 'F')
     {
-        errMsg = "Please choose male or female gender.";
+        errMsg = "Please choose gender.";
     }
 
     if (errMsg)
-        res.render('register', { errmsg: errMsg, username: username, gender: gender });
+        res.render('register', { 
+            errmsg: errMsg, username: username, gender: gender,
+            helpers: {
+                isSelected: function(val1, val2) {
+                    return (val1 == val2) ? "selected" : "";
+                }
+            } 
+        });
     else
-        res.render('confirm', { username: username, password: password });
+        res.render('confirm', { username: username, password: password, gender: gender,
+            helpers: {
+                genderToLabel: function(gender) {
+                    return { "M": "Male", "F": "Female" }[gender];
+                }
+            } 
+        });
 });
 
 app.post('/confirm', function (req, res) {

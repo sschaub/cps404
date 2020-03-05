@@ -1,16 +1,16 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var expressHbs = require('express-handlebars');
-var session = require('express-session');
-var flash = require('connect-flash');
-var validator = require('express-validator');
-var routes = require('./routes/index');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const expressHbs = require('express-handlebars');
+const session = require('express-session');
+const flash = require('connect-flash');
+const { check, validationResult }  = require('express-validator');
+const routes = require('./routes/index');
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.engine('.hbs', expressHbs({extname: '.hbs'}));
@@ -21,7 +21,6 @@ app.set('view engine', '.hbs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(validator());
 app.use(cookieParser());
 app.use(session({secret: 'mysupersecret', resave: false, saveUninitialized: false}));
 app.use(flash());
