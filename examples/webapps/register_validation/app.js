@@ -3,6 +3,7 @@
 var express = require('express');
 var exphbs  = require('express-handlebars');
 var bodyParser = require('body-parser');
+var session = require('express-session')
 const { check, validationResult } = require('express-validator');
 
 var app = express();
@@ -11,13 +12,12 @@ app.engine('hbs', exphbs({defaultLayout: 'main', extname: 'hbs'}));
 app.set('view engine', 'hbs');
 
 app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(expressValidator({
-//     customValidators: {
-//         passwordsMatch: function (password, confirmPassword) {
-//             return password == confirmPassword;
-//         }
-//     }
-// }));
+
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}))
 
 // ----------------- routes --------------------------
 
@@ -63,18 +63,23 @@ app.post('/register', makeRegisterValidationRules(), function (req, res) {
         return;
     }
 
-    // DO THIS?
+    // DO THIS? (server-side transfer)
     res.render('confirm', { username: username, password: password });
 
-    // or this?
-    //res.redirect('/confirm?username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password));
-    // or ...?
+    // or this? (client-side redirect with query parameters)
+    // res.redirect('/confirm?username=' + encodeURIComponent(username) + '&password=' + encodeURIComponent(password));
 
-    // req.session.username = req.params['username'];
-    // req.session.password = req.params['password'];
-    //res.redirect('/confirm')
+    // or this? (client-side redirect with session)
+    // req.session.username = req.body.username;
+    // req.session.password = req.body.password;
+    // res.redirect('/confirm')
 
 });
+
+app.get('/confirm', function (req, res) {
+    res.render('confirm', { username: req.query.username, password: req.query.password });
+    //res.render('confirm', { username: req.session.username, password: req.session.password });
+})
 
 app.post('/confirm', function (req, res) {
     var username = req.body.username || "";
