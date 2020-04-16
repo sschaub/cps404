@@ -1,0 +1,29 @@
+<html>
+<head>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script >
+        $(function() {
+            $("#btn").click(function() {
+                $(this).attr("value", "You clicked me!");
+                //$("#msg").prop("innerHTML", "<b>Hello</b>");
+                $("#msg").html("<b>Hello</b>");
+                $("#msg").css("font-size", "36");
+            });
+
+            $("#hideit").click(function() {
+                //$(".tohide").css("display", "none");
+                $(".tohide").fadeOut();
+            })
+        })
+    </script>
+</head>
+<body>
+    <input id="btn" type="button" value="Click me">    
+    <input id="hideit" type="button" value="Hide the paragraphs">
+
+    <p id="msg"></p>
+    <p class="tohide">A paragraph</p>
+    <p class="tohide">Another paragraph</p>
+    <p>No styling here</p>
+</body>
+</html>

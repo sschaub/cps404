@@ -25,8 +25,8 @@
             var styleValue = $(this).val();
             $.get(
               '/details',
-              { style: styleValue },
-              function(data) {
+              { style: styleValue }
+            ).done(function(data) {
                 if (!data.sku) return;
 
                 $('#itemName').text(data.name);
@@ -36,8 +36,10 @@
                 $('#itemFeatures').html(data.features);
                 var imgUrl = "photos/" + data.sku + ".png";
                 $('#itemPhoto').attr('src', imgUrl);
-              }
-            );
+              }).fail(function(jqXHR, textStatus, errorThrown) {
+                $('#errmsg').show().text('help!' + textStatus + jqXHR.status);
+  
+              });
             adjustColorDropdown();
           })
           .change();

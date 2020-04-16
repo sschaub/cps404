@@ -11,7 +11,8 @@
             var styleValue = $(this).val();
             $.get(
               '/details',
-              { style: styleValue },
+              { style: styleValue }
+            ).done(
               function(data) {
                 if (!data.sku) return;
 

@@ -24,7 +24,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.engine('hbs', exphbs());
+app.engine('hbs', exphbs({extname: 'hbs'}));
 //app.engine('handlebars', exphbs());
 app.set('view engine', 'hbs');
 

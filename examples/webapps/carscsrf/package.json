@@ -1,0 +1,20 @@
+{
+  "name": "express-handlebars-basic-example",
+  "version": "0.0.0",
+  "description": "",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Eric Ferraiuolo <eferraiuolo@gmail.com>",
+  "license": "BSD",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "csurf": "^1.11.0",
+    "express": "^4.7.2",
+    "express-handlebars": "*",
+    "express-session": "^1.17.0"
+  }
+}
