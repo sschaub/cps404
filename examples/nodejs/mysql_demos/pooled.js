@@ -1,4 +1,5 @@
-
+// Note: If the below fails to connect to MySQL with an error "Client does not support authentication protocol requested by server",
+// see https://stackoverflow.com/questions/50093144/mysql-8-0-client-does-not-support-authentication-protocol-requested-by-server
 
 let express = require("express");
 
