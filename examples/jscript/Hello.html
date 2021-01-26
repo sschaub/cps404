@@ -1,26 +1,5 @@
 <html>
-<head>
-  <script language="javascript">
-
-    function button1_onclick() {
-      var txtName = document.getElementById("txtName");
-      var txtOutput = document.getElementById("txtOutput");
-      txtOutput.innerHTML = "<H2>Hello, " +txtName.value + "</H2>";
-    }
-    
-    function init() {
-        document.getElementById("txtName").focus()    
-    }
-
-  </script>
-</head>
-<body onload='init()'>
-
-  <form name="myform">
-    What's your name? <input type="text" id="txtName">
-    <p><input type="button" value="Greet" onclick="button1_onclick()"></p>
-    <p id="txtOutput"></p>
-  </form>
-  
-</body>
+    <body>
+        <input type="button" value="Click me" onclick="alert('hello, world!')">
+    </body>
 </html>
