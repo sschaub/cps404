@@ -5,29 +5,34 @@ services:
   mysql1:
     image: mysql:8.0.17
     container_name: mysql1
+    command: --default-authentication-plugin=mysql_native_password   # Configure MySQL to use native password authentication
+    restart: "no"  
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-mysql}
       MYSQL_USER: ${MYSQL_USER:-mysql}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD:-mysql}
-      MYSQL_DATABASE: mydb
+      MYSQL_DATABASE: mydb     # Name of MySQL database
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./db:/docker-entrypoint-initdb.d  # Make scripts in our db folder run the first time to populate initial database when MySQL starts
     ports:
-      - 3306:3306
+      - 3306:3306  # Bind MySQL server to host port to simplify connecting to it during development
 
   app1:
     image: "node:13"
     container_name: app1
     working_dir: /app
     user: "1000:1000"
+    restart: "no"
     volumes:
       - ./webapp:/app
     environment:
-      - DBHOST=mysql1
-      - NODE_ENV=development
-      - PORT=8888
+      DBHOST: mysql1
+      NODE_ENV: development
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-mysql}
+      PORT: 8888
     ports:
-      - 80:8888    # External port : container port
+      - 80:8888    # External (host) port : container port
     command: npm start
 
 volumes:

@@ -3,13 +3,14 @@ let express = require("express");
 let mysql = require("mysql");
 
 let dbhost = process.env['DBHOST'] || 'localhost';
+let dbPass = process.env['MYSQL_PASSWORD'] || 'mysql';
 
 function getConnection() {
     return mysql.createConnection({
     "host": dbhost,
     "port": 3306,
     "user": "mysql",
-    "password": "mysql",
+    "password": dbPass,
     "database": "mydb"
     });
 }
