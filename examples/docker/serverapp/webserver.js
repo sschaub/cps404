@@ -12,3 +12,5 @@ http.createServer(function(req, res) {
     }
   });
 }).listen(8888);
+
+console.log("Server is listening for incoming connections.")

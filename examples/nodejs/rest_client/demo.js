@@ -1,5 +1,6 @@
 // demo.js
 // To use this demo:
+//   npm install request
 //   npm install -g json-server
 //   json-server --watch db.json
 //   node demo.js
@@ -19,7 +20,6 @@ request(options, function (error, response, body) {
     result.forEach(function(item) {
         console.log(item.id + ": " + item.message);
     });
-    //console.log(body) // Show the HTML for the Google homepage. 
   } else {
       console.log(error);
       console.log(response.statusCode);

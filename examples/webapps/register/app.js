@@ -18,7 +18,11 @@ app.get('/', function (req, res) {
 });
 
 app.get('/register', function (req, res) {
-    res.render('register');
+    res.render('register', { 
+        helpers: {
+            isSelected: isSelected
+        }
+    });
 });
 
 app.post('/register', function (req, res) {
@@ -51,9 +55,7 @@ app.post('/register', function (req, res) {
         res.render('register', { 
             errmsg: errMsg, username: username, gender: gender,
             helpers: {
-                isSelected: function(val1, val2) {
-                    return (val1 == val2) ? "selected" : "";
-                }
+                isSelected: isSelected
             } 
         });
     else
@@ -74,6 +76,11 @@ app.post('/confirm', function (req, res) {
     res.render('complete');
 });
 
+// Helpers
+
+function isSelected(val1, val2) {
+    return (val1 == val2) ? "selected" : "";
+}
 
 app.listen(3000, function () {
     console.log('server listening on: 3000');

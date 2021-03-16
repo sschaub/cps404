@@ -29,6 +29,7 @@ app.get('/delete/:id', function(req, res) {
             inventory.splice(i, 1);
         }
     }
+    //res.render('home', { inventory: inventory });
     res.redirect('/');
 });
 
