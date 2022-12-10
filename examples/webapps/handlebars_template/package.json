@@ -11,7 +11,7 @@
   "author": "Eric Ferraiuolo <eferraiuolo@gmail.com>",
   "license": "BSD",
   "dependencies": {
-    "express": "^4.7.2",
+    "express": "^4.17.3",
     "express-handlebars": "*"
   }
 }
