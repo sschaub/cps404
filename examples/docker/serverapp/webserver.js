@@ -2,7 +2,7 @@ let http = require('http');
 let fs = require('fs');
 
 http.createServer(function(req, res) {
-  console.log("Serving: " + req.url + " from " + __dirname);
+  console.log("Serving the file: " + req.url + " from " + __dirname);
   fs.readFile(__dirname + req.url, function(err, data) { 
      if (err) {
       res.statusCode = 500;
