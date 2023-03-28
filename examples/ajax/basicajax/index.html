@@ -1,0 +1,25 @@
+<html>
+<head>
+    <style>
+        #working { display: none; }
+    </style>
+    <script>
+        async function handleClick() {
+            let result = await window.fetch('ajaxdata.json')
+            let data = await result.json()
+            
+            console.log(data);
+            var htmlData = "";
+            for (var i = 0; i < data.length; ++i) {
+                htmlData += data[i].id + ": " + data[i].name + "<br>\n";
+            }
+            document.getElementById('msg').innerHTML = htmlData
+        }
+    </script>
+</head>
+<body>
+    <input id="btn" type="button" value="Click me" onclick="handleClick()">
+
+    <p id="msg"></p>
+</body>
+</html>

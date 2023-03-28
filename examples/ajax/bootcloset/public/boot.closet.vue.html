@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to The Boot Closet&trade;</title>
+
+    <link rel="stylesheet" type="text/css" href="boot.closet.css">
+    
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+      }
+    </script>
+    
+    <script type="module">
+      import { createApp } from 'vue'
+    
+      createApp({
+        data() {
+          return {
+            loading: false,
+            styleValue: '',
+            bootData: {}
+          }
+        },
+        computed: {
+          photoUrl() {
+            return this.bootData.sku ? "photos/" + this.bootData.sku + ".png" : undefined
+          }
+        },
+        methods: {
+          async styleChanged() {
+            this.bootData = {}
+            this.loading = true
+            await sleep(1000)
+            let result = await window.fetch('/details?style=' + this.styleValue)
+            this.bootData = await result.json()
+            
+            this.loading = false
+          }
+        }
+      }).mount('#app')
+
+      function sleep(ms) {
+          return new Promise(resolve => setTimeout(resolve, ms));
+      }
+    </script>
+
+  </head>
+
+  <body id="app">
+    <img id="banner" src="boot.closet.branding.png"/>
+    <form action="" id="orderForm">
+      <div id="detailFormContainer">
+        <h1>Choose your boots</h1>
+        <div>
+          <label>Please choose a style:</label><br/>
+          <select @change="styleChanged" v-model="styleValue">
+            <option value="">Please choose a boot style</option>
+            <option value="7177382">Caterpillar Tradesman Work Boot</option>
+            <option value="7141832">Chippewa 17" Engineer Boot</option>
+          </select>
+        </div>
+        <div v-if="loading"><img src="ajax-loader.gif"></div>
+        <div id="detailsDisplay">
+          <div>
+            <label>Item name:</label> <span>{{bootData.name}}</span>
+          </div>
+          <div>
+            <label>SKU:</label> <span>{{bootData.sku}}</span>
+          </div>
+          <div>
+            <label>Colors:</label> <span v-html="bootData.colors"></span>
+          </div>
+          <div>
+            <label>Today's price:</label> <span>{{bootData.price}}</span>
+          </div>
+          <div>
+            <label>Features:</label> <span v-html="bootData.features"></span>
+          </div>
+          <div align="center">
+            <img id="itemPhoto" :src="photoUrl" />
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

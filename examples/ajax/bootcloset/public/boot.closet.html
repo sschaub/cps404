@@ -2,32 +2,41 @@
 <html>
   <head>
     <title>Welcome to The Boot Closet&trade;</title>
-    <link rel="stylesheet" type="text/css" href="boot.closet.css">
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript">
-      $(function(){
-        $('#styleDropdown')
-          .change(function(){
-            var styleValue = $(this).val();
-            $.get(
-              '/details',
-              { style: styleValue }
-            ).done(
-              function(data) {
-                if (!data.sku) return;
 
-                $('#itemName').text(data.name);
-                $('#itemSku').text(data.sku);
-                $('#itemColors').html(data.colors);
-                $('#itemPrice').text(data.price);
-                $('#itemFeatures').html(data.features);
-                var imgUrl = "photos/" + data.sku + ".png";
-                $('#itemPhoto').attr('src', imgUrl);
-              }
-            );
-          })
-          .change();
-      });
+    <link rel="stylesheet" type="text/css" href="boot.closet.css">
+
+    <style>
+      #loading {
+        float: right;
+        display: none;
+      }
+    </style>
+    
+    <script type="text/javascript">
+      async function styleChanged() {
+        let styleValue = document.getElementById('styleDropdown').value
+        document.getElementById('loading').style.display = 'block'
+        let result = await window.fetch('/details?style=' + styleValue)
+        let data = await result.json()
+        
+        await sleep(1000)
+
+        if (!data.sku) return
+
+        document.getElementById('itemName').innerText = data.name
+        document.getElementById('itemSku').innerText = data.sku
+        document.getElementById('itemColors').innerHTML = data.colors
+        document.getElementById('itemPrice').innerText = data.price
+        document.getElementById('itemFeatures').innerHTML = data.features;
+        var imgUrl = "photos/" + data.sku + ".png";
+        document.getElementById('itemPhoto').src = imgUrl
+        document.getElementById('loading').style.display = 'none'
+
+      }
+
+      function sleep(ms) {
+          return new Promise(resolve => setTimeout(resolve, ms));
+      }
     </script>
   </head>
 
@@ -38,12 +47,13 @@
         <h1>Choose your boots</h1>
         <div>
           <label>Please choose a style:</label><br/>
-          <select id="styleDropdown">
+          <select id="styleDropdown" onchange="styleChanged()">
             <option value="">Please choose a boot style</option>
             <option value="7177382">Caterpillar Tradesman Work Boot</option>
             <option value="7141832">Chippewa 17" Engineer Boot</option>
           </select>
         </div>
+        <div id="loading"><img src="ajax-loader.gif"></div>
         <div id="detailsDisplay">
           <div>
             <label>Item name:</label> <span id="itemName"></span>
