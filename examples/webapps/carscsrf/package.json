@@ -12,7 +12,7 @@
   "license": "BSD",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "csurf": "^1.11.0",
+    "csrf-sync": "^4.0.1",
     "express": "^4.7.2",
     "express-handlebars": "*",
     "express-session": "^1.17.0"
