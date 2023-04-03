@@ -3,8 +3,8 @@
 var express = require('express'),
     exphbs  = require('express-handlebars'),
     bodyParser = require('body-parser'),
-    csrf = require('csurf'), 
-    session = require('express-session'); // "express-handlebars"
+    session = require('express-session'),
+    { csrfSync } = require("csrf-sync"); 
 
 var app = express();
 
@@ -19,14 +19,11 @@ app.use(session({
     saveUninitialized: true
   }));
 
-  // Register csrf protection for all POST requests
-app.use(csrf());
-
-// Middleware to generate csrftoken for each request
-app.use(function(req, res, next) { 
-    res.locals.csrftoken = req.csrfToken(); 
-    next(); 
-}); 
+// Configure CSRF protection module
+const { csrfSynchronisedProtection } = csrfSync({
+    // Retrieve the CSRF token submitted by the user in a form
+    getTokenFromRequest: (req) =>  req.body['_csrf']    
+})
 
 function isLoggedIn(req, res, next) {
     var username = req.session.username;
@@ -60,6 +57,15 @@ app.post('/login', function (req, res) {
         res.render('login');
     }
 });
+
+// Register CSRF protection for all routes defined after this point
+app.use(csrfSynchronisedProtection)
+
+// Middleware to generate csrftoken for each request
+app.use(function(req, res, next) { 
+    res.locals.csrftoken = req.csrfToken(true); 
+    next(); 
+}); 
 
 app.get('/home', isLoggedIn, function (req, res) {
     res.render('home', { inventory: inventory });
