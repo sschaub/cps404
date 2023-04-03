@@ -72,7 +72,7 @@ app.post('/confirm', function (req, res) {
     var username = req.body.username || "";
     var password = req.body.password || "";
 
-    console.log('User ${username} registered with password ${password}.');
+    console.log(`User ${username} registered with password ${password}.`);
     res.render('complete');
 });
 
