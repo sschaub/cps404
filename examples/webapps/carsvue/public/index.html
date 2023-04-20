@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+
+ 
+    <script type="importmap">
+    {
+        "imports": {
+            "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+    }
+    </script>   
+
+
+
+    <script type="module">
+        import { createApp } from 'vue'
+
+        createApp({
+            data() {
+                return {
+                  inventory: [],
+                  username: window.localStorage.username
+                }
+            },
+            async mounted() {
+                let result = await window.fetch('/inventory')
+                this.inventory = await result.json()
+            },
+            methods: {
+                async deleteClicked(itemId) {
+                    let result = await window.fetch(`/delete/${itemId}`,
+                    { method: "POST" })
+                    let newInventory = await result.json()
+                    this.updateInventory(newInventory)
+                },
+                updateInventory(newInventory) {
+                    this.inventory = newInventory
+                }
+            }
+        }).mount('#app')
+
+    </script>    
+    <meta charset="utf-8" />
+    <title>Example App</title>
+</head>
+<body id="app">
+
+   <h1>Pick your favorite, {{username}}.</h1>
+
+Everything works guaranteed.
+
+<ul>
+<li v-for="item in inventory">
+    {{item.make}} {{item.model}} <a href="#" @click="deleteClicked(item.id)">(delete)</a>
+</li>
+</ul>
+
+<form method="post" action="/add">
+Make: <input type="text" name="make" value=""><br>
+Model: <input type="text" name="model" value=""><br>
+<input type="submit" value="Add">
+
+</form>
+
+</body>
+</html>
+

@@ -18,15 +18,22 @@
         data() {
             return {
                 title: 'Hello, world!',
-                msg: ''
+                msg: '',
+                items: []
             }
         },
         mounted() {
             this.msg = `Today is ${new Date()}`
+            this.items = [
+                { name: 'Fred', age: 10 },
+                { name: 'Sue', age: 15 },
+                { name: 'Helga', age: 98 }
+            ]
         },
         methods: {
             btnClicked() {
                 this.msg = 'You clicked me!'
+                this.items.push({ name: 'Friederich', age: 23 })
             }
         }
     }).mount('#app')
@@ -38,6 +45,9 @@
 
     <h1>{{ title }}</h1>
     <p>{{ msg }}</p>
+    <div>
+        <p v-for="(item, index) in items">{{index}}. {{item.name}} is {{item.age}} years old.</p>
+    </div>
     <input type="button" value="Click me" @click="btnClicked()">
 </body>
 

@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <script>
+            let username
+            function login() {
+                username = document.getElementById('username').value
+                if (username == 'tom' || username == 'jerry') {
+                    localStorage.username = username
+                    window.location = "index.html"
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            Username: <input type="text" id="username">
+            <br>
+            <input type="button" value="Login" onclick="login()">
+        </form>
+    </body>
+</html>
