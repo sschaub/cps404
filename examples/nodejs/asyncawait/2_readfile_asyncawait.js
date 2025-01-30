@@ -17,3 +17,6 @@ async function go() {
 }
 
 go()
+// demo(process.argv[2])
+
+console.log(">>> All done")
