@@ -17,7 +17,7 @@ curl  http://localhost:3000/posts/1
 ## Create a post
 
 ```
-curl -d "title=Boo&author=foo&message=moo"  http://localhost:3000/posts
+curl -X POST -d "{ \"title\": \"Boo\", \"author\": \"foo\" }"  http://localhost:3000/posts
 ```
 
 ## Delete a post
@@ -29,5 +29,5 @@ curl -X DELETE  http://localhost:3000/posts/5
 ## Update a post
 
 ```
-curl -d "title=Boo&author=foo&message=moo" -X PUT  http://localhost:3000/posts/4
+curl -X PATCH -d "{ \"title\": \"A new title\" }"  http://localhost:3000/posts/4
 ```
