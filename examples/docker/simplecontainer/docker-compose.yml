@@ -1,4 +1,3 @@
-version: "2"
 services:
   my_node_container:
     image: "node:19.6.0"

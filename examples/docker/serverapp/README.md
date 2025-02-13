@@ -12,16 +12,16 @@ Windows:
 docker run -p 8000:8888 -v %CD%:/myapp node:latest node /myapp/webserver.js
 ```
 
-## Run with docker-compose
+## Run with docker compose
 
 Start:
 ```
-docker-compose up -d
+docker compose up -d
 ```
 
 Stop:
 ```
-docker-compose down
+docker compose down
 ```
 
 ## Build and run Docker image:
