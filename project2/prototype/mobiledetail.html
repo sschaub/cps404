@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grocery List</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .header-title {
+      flex-grow: 1;
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    
+    .search-button {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    
+    .content {
+      flex-grow: 1;
+      padding: 16px;
+    }
+    
+    .book-item {
+      border: 1px solid #eee;
+      padding: 16px;
+      border-radius: 8px;
+      background-color: #fff;
+    }
+    
+    .book-item h2 {
+      margin-bottom: 8px;
+      font-size: 22px;
+      color: #4CAF50;
+    }
+    
+    .book-item p {
+      margin-bottom: 8px;
+      line-height: 1.5;
+    }
+    
+    .book-item p strong {
+      display: inline-block;
+      width: 80px;
+    }
+    
+    .footer {
+      background-color: #fff;
+      border-top: 1px solid #eee;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .footer a.nav-button {
+      text-decoration: none;
+      color: #4CAF50;
+      font-weight: bold;
+      padding: 8px 12px;
+      border: 1px solid #4CAF50;
+      border-radius: 4px;
+      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
+    
+    .footer a.nav-button:hover {
+      background-color: #4CAF50;
+      color: #fff;
+    }
+    
+    /* Mobile Styling */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        margin: 0 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <button class="search-button" onclick="history.back()">Back</button>
+      <div class="header-title">Grocery List</div>
+      <!-- An empty element to balance the flex spacing -->
+      <div style="width: 60px;"></div>
+    </header>
+    <div class="content">
+      <article class="book-item">
+        <h2>The Great Gatsby</h2>
+        <p><strong>Author:</strong> F. Scott Fitzgerald</p>
+        <p><strong>Description:</strong> A portrait of the Jazz Age in all of its decadence and excess, Gatsby captured the spirit of the author's generation.</p>
+        <p><strong>ISBN:</strong> 9780743273565</p>
+      </article>
+    </div>
+    <div class="footer">
+      <a href="#" class="nav-button">Previous</a>
+      <a href="#" class="nav-button">Next</a>
+    </div>
+  </div>
+</body>
+</html>
