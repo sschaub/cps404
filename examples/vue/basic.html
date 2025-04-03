@@ -19,6 +19,8 @@
             return {
                 title: 'Hello, world!',
                 msg: '',
+                gender: 'M',
+                name: '',
                 items: []
             }
         },
@@ -32,7 +34,12 @@
         },
         methods: {
             btnClicked() {
-                this.msg = 'You clicked me!'
+                if (this.name === '') {
+                    this.msg = 'Hello, world!'
+                } else {
+                    this.msg = `Hello, ${this.name}!`
+                    this.gender = 'F'
+                }
                 this.items.push({ name: 'Friederich', age: 23 })
             }
         }
@@ -45,6 +52,12 @@
 
     <h1>{{ title }}</h1>
     <p>{{ msg }}</p>
+    <p>Your name: <input type="text" v-model="name"></p>
+    <select v-model="gender">
+        <option value="">Pick (only) one</option>
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+    </select>
     <div>
         <p v-for="(item, index) in items">{{index}}. {{item.name}} is {{item.age}} years old.</p>
     </div>

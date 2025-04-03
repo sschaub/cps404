@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Demo</title>
+
+<script type="importmap">
+{
+    "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+    }
+}
+</script>
+
+<script type="module">
+    import { createApp } from 'vue'
+
+    createApp({
+        data() {
+            return {
+                title: 'Hello, world!',
+            }
+        }
+    }).mount('#app')
+
+var numClicks = 0
+
+</script>
+</head>
+
+<body id="app">
+
+    <h1>{{ title }}</h1>
+    
+    <input type="button" value="Click me">
+</body>
+
+</html>
