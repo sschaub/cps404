@@ -9,6 +9,6 @@
   },
   "license": "BSD",
   "dependencies": {
-    "express": "^4.7.x"
+    "express": "^4.18.x"
   }
 }
